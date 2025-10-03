@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Appbar() {
   const pages: string[] = ["Marketplace", "Ranking", "Connect Wallet"];
   return (
-    <div className="flex flex-row justify-between items-center py-4 px-6 lg:px-16 xl:px-32">
+    <div className="flex flex-row justify-between items-center py-4 px-6 lg:px-16 xl:px-32 hover:bg-white">
       <Link className="flex flex-row gap-4 items-center" href={"/"}>
         <Store color="#a259ff" />
         <h6 className="text-sm font-bold">NFT Marketplace</h6>

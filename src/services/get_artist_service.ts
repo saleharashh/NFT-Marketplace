@@ -5,7 +5,7 @@ import axios from "axios";
 async function fetchArtists(): Promise<Artist> {
   try {
     const res = await axios.get("http://localhost:3000/artists/getArtist", {
-      params: { id: 2 },
+      params: { id: 1 },
     });
     return res.data;
   } catch (error) {

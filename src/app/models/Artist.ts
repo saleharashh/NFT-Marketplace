@@ -6,4 +6,6 @@ export interface Artist {
   followers: string;
   walletAddres: string;
   bio: string;
+  profileImage: string;
+  backgroundImage: string;
 }

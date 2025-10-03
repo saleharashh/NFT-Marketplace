@@ -12,8 +12,8 @@ export default function ArtistNFTs() {
         data?.length === 3 ? "grid-cols-3" : "grid-cols-2"
       } gap-2`}
     >
-      {data?.map((index, item) => (
-        <NFTCard key={index} />
+      {data?.map((item, index) => (
+        <NFTCard key={index} {...item} />
       ))}
     </div>
   );

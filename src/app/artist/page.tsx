@@ -16,7 +16,10 @@ export default function Artist() {
   if (isError) return <p>Error: {error.message}</p>;
   return (
     <div className="flex flex-col ">
-      <ArtistHeroSection />
+      <ArtistHeroSection
+        profileImage={data?.profileImage!}
+        backgroundImage={data?.backgroundImage!}
+      />
       <div className="px-10">
         <ArtistInfoSection {...data!} />
       </div>

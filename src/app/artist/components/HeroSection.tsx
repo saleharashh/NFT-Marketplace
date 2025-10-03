@@ -1,9 +1,17 @@
-export default function ArtistHeroSection() {
+export interface ArtistHeroSectionData {
+  profileImage: string;
+  backgroundImage: string;
+}
+
+export default function ArtistHeroSection({
+  profileImage,
+  backgroundImage,
+}: ArtistHeroSectionData) {
   return (
     <div className="relative">
       {/* Hero Image */}
       <img
-        src="/hero-background.jpg"
+        src={`http://localhost:3000/uploads/${backgroundImage}`}
         alt="Hero background"
         className="w-full h-64 object-cover bg-primary" // adjust h-64 to your height
       />
@@ -24,7 +32,7 @@ export default function ArtistHeroSection() {
         "
       >
         <img
-          src="/avatar-image.jpg"
+          src={`http://localhost:3000/uploads/${profileImage}`}
           alt="Avatar"
           className="w-full h-full object-cover bg-white"
         />

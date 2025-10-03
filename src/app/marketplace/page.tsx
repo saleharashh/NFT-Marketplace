@@ -1,8 +1,11 @@
+"use client";
 import { Search } from "lucide-react";
 import TabLayout from "../components/TabLayout";
 import NFTCard from "../components/NFTCard";
+import { useGetAllNFTs } from "@/services/get_all_nfts_service";
 
 export default function Marketplace() {
+  const { data, isLoading, isError, error } = useGetAllNFTs();
   const tabs: string[] = ["NFTs", "Collections"];
   return (
     <div className="flex flex-col">
@@ -16,16 +19,14 @@ export default function Marketplace() {
             className="placeholder-secondary-text focus:outline-0"
           />
           <Search />
-        </div>{" "}
+        </div>
       </div>
       <TabLayout
         content={
           <div className=" px-10 py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-            <NFTCard />
-            <NFTCard />
-            <NFTCard />
-            <NFTCard />
-            <NFTCard />
+            {data?.map((item, index) => (
+              <NFTCard {...item} key={index} />
+            ))}
           </div>
         }
         tabs={tabs}

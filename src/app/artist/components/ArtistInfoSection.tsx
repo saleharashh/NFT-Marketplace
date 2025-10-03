@@ -1,4 +1,5 @@
 import {
+  Copy,
   Globe,
   Network,
   Plus,
@@ -9,21 +10,23 @@ import {
 } from "lucide-react";
 import ArtistStatItem, { ArtistStatItemType } from "./ArtistStatItem";
 import { Artist } from "@/app/models/Artist";
+import { convertToTruncate } from "@/utils";
 
 export default function ArtistInfoSection(artist: Artist) {
   const artistStats: ArtistStatItemType[] = [
-    { title: "Volume", value: artist.volume },
-    { title: "NFTs Sold", value: artist.nftSolds },
+    { title: "Volume", value: artist.volume + "K +" },
+    { title: "NFTs Sold", value: artist.nftSolds + "K +" },
     { title: "Followers", value: artist.followers },
   ];
   return (
     <div className="flex flex-col items-start  gap-4 mt-20">
-      <div className="flex flex-col lg:flex-row lg:w-full lg:items-center gap-3 justify-between">
+      <div className="flex flex-col w-full lg:flex-row lg:w-full lg:items-center gap-3 justify-between">
         <h1 className="text-2xl">{artist.name}</h1>
-        <div className="flex flex-col md:flex-row items-stretch gap-3">
-          <p className="p-4 bg-primary text-white rounded-2xl">
-            {artist.walletAddres}
-          </p>
+        <div className="flex flex-col  md:flex-row items-stretch gap-3">
+          <div className="p-4 flex flex-row items-center justify-center bg-primary text-white rounded-2xl gap-4">
+            <Copy />
+            <p>{convertToTruncate(artist.walletAddres)}</p>
+          </div>
           <div className="flex border-primary border-2 flex-row py-4 px-10 rounded-2xl gap-2 items-center justify-center">
             <Plus color="#a259ff" />
             <p>Follow</p>
