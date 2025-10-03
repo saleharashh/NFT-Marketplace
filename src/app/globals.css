@@ -1,0 +1,22 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+@layer base {
+  * {
+    @apply font-mono;
+    @apply text-white;
+  }
+}
+
+@theme {
+  --font-mono: "Space Mono", space-mono;
+  --color-*: initial;
+  --color-primary: #a259ff;
+  --color-background: #2b2b2b;
+  --color-secondary-background: #3b3b3b;
+  --color-secondary: #3b3b3b;
+  --color-secondary-text: #858584;
+  --color-caption-text-color: #858584;
+  --color-white: #ffffff;
+}
