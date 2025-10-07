@@ -14,16 +14,19 @@ export default function Artist() {
 
   if (isLoading) return <p>loading...</p>;
   if (isError) return <p>Error: {error.message}</p>;
+  console.log(data);
   return (
     <div className="flex flex-col ">
       <ArtistHeroSection
         profileImage={data?.profileImage!}
         backgroundImage={data?.backgroundImage!}
       />
-      <div className="px-10">
-        <ArtistInfoSection {...data!} />
+      <div className="lg:px-50">
+        <div className="px-10 ">
+          <ArtistInfoSection {...data!} />
+        </div>
+        <TabLayout tabs={tabs} content={<OwnedNFTs />} />
       </div>
-      <TabLayout tabs={tabs} content={<OwnedNFTs />} />
     </div>
   );
 }

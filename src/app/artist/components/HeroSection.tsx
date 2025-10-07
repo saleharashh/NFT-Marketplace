@@ -21,6 +21,7 @@ export default function ArtistHeroSection({
         className="
           absolute 
           left-1/2 
+          lg:left-60
           md:left-16 md:translate-x-0
           -bottom-16 
           transform -translate-x-1/2

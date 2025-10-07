@@ -7,8 +7,8 @@ export default function BrowseCategorySection() {
       <div className="mt-5 flex flex-col gap-2">
         <h1 className="text-3xl">Browse Categories</h1>
         <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {array.map(() => (
-            <Link href={"/marketplace"}>
+          {array.map((i) => (
+            <Link key={i} href={"/marketplace"}>
               <div className="rounded-xl overflow-hidden bg-secondary-background">
                 <div className="relative">
                   <img

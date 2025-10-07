@@ -21,7 +21,7 @@ export default function DiscoverSecrtion() {
         <div className="mt-4 flex flex-col md:flex-row gap-2 items-center justify-between">
           {array.map((i) => (
             <Link href={"nft"}>
-              <NFTCard key={i} />
+              {/* <NFTCard key={i} /> */}
             </Link>
           ))}
         </div>

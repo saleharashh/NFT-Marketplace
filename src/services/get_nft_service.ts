@@ -2,7 +2,7 @@ import { NFT } from "@/app/components/NFTCard";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-async function fetchNft(): Promise<NFT> {
+async function fetchNft(id: string): Promise<NFT> {
   try {
     const res = await axios.get("http://localhost:3000/nft/getNftById", {
       params: { id: 1 },
@@ -13,9 +13,9 @@ async function fetchNft(): Promise<NFT> {
   }
 }
 
-export function useGetNft() {
+export function useGetNft(id: string) {
   return useQuery<NFT, Error>({
     queryKey: ["getNftById"],
-    queryFn: fetchNft,
+    queryFn: () => fetchNft(id),
   });
 }

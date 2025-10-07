@@ -7,15 +7,12 @@ export default function TrendingSections() {
       <p className="text-sm">
         Checkout Our Weekly Updated Trending Collection.
       </p>
-      <div className="flex flex-row items-center justify-center gap-8 ">
-        <div>
-          <TrendingCollectionItem />
-        </div>
+      <div className="flex flex-row items-center justify-between">
+        <TrendingCollectionItem />
         <div className="hidden md:flex">
           <TrendingCollectionItem />
         </div>
-
-        <div className="hidden lg:flex">
+        <div className="hidden xl:flex">
           <TrendingCollectionItem />
         </div>
       </div>

@@ -17,10 +17,10 @@ export default function HeroSection() {
 
   return (
     <div>
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-col  md:flex-row md:justify-center gap-4">
+      <div className="flex flex-col gap-5">
+        <div className="flex flex-col w-full  md:flex-row md:justify-between gap-5 ">
           <div className="flex flex-col md:w-7/12 md:items-center md:justify-center gap-4">
-            <h4 className="text-2xl md:text-4xl lg:text-6xl">
+            <h4 className="text-2xl md:text-4xl xl:text-6xl">
               Discover Digital Art & Collect NFTs
             </h4>
             <h1 className="text-white md:text-sm">
@@ -37,7 +37,7 @@ export default function HeroSection() {
                   <p>Get Started</p>
                 </div>
               </Link>
-              <div className="flex flex-row gap-15">
+              <div className="flex flex-row gap-15 pt-10">
                 {stats.map((item, index) => (
                   <HeroStaticsItem key={index} {...item} />
                 ))}

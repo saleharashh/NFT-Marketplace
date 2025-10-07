@@ -8,7 +8,7 @@ export default function Marketplace() {
   const { data, isLoading, isError, error } = useGetAllNFTs();
   const tabs: string[] = ["NFTs", "Collections"];
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col lg:px-20 xl:px-50">
       <div className="flex flex-col  gap-4 px-10 pt-10">
         <h1 className="text-2xl font-bold">Browse Marketplace</h1>
         <p>Browse through more than 50k NFTs on the NFT Marketplace.</p>
@@ -16,7 +16,7 @@ export default function Marketplace() {
           <input
             type="text"
             placeholder="Search your favorite NFTs"
-            className="placeholder-secondary-text focus:outline-0"
+            className="placeholder-secondary-text w-full focus:outline-0"
           />
           <Search />
         </div>

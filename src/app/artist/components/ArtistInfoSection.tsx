@@ -11,8 +11,11 @@ import {
 import ArtistStatItem, { ArtistStatItemType } from "./ArtistStatItem";
 import { Artist } from "@/app/models/Artist";
 import { convertToTruncate } from "@/utils";
+import OutlinedRoundedButton from "@/app/components/OutlinedRoundedButton";
+import FilledRoundedButton from "@/app/components/FilledRoundedButton";
 
 export default function ArtistInfoSection(artist: Artist) {
+  console.log(artist);
   const artistStats: ArtistStatItemType[] = [
     { title: "Volume", value: artist.volume + "K +" },
     { title: "NFTs Sold", value: artist.nftSolds + "K +" },
@@ -23,14 +26,14 @@ export default function ArtistInfoSection(artist: Artist) {
       <div className="flex flex-col w-full lg:flex-row lg:w-full lg:items-center gap-3 justify-between">
         <h1 className="text-2xl">{artist.name}</h1>
         <div className="flex flex-col  md:flex-row items-stretch gap-3">
-          <div className="p-4 flex flex-row items-center justify-center bg-primary text-white rounded-2xl gap-4">
+          <FilledRoundedButton onClick={() => {}}>
             <Copy />
             <p>{convertToTruncate(artist.walletAddres)}</p>
-          </div>
-          <div className="flex border-primary border-2 flex-row py-4 px-10 rounded-2xl gap-2 items-center justify-center">
+          </FilledRoundedButton>
+          <OutlinedRoundedButton onClick={() => {}}>
             <Plus color="#a259ff" />
             <p>Follow</p>
-          </div>
+          </OutlinedRoundedButton>
         </div>
       </div>
       <div className="flex flex-row w-full justify-between md:w-8/12 lg:w-4/12">

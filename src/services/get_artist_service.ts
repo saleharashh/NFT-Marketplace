@@ -7,7 +7,7 @@ async function fetchArtists(): Promise<Artist> {
     const res = await axios.get("http://localhost:3000/artists/getArtist", {
       params: { id: 1 },
     });
-    return res.data;
+    return res.data.data!;
   } catch (error) {
     throw new Error("Network response was not Ok");
   }

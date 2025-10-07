@@ -3,9 +3,14 @@ import { Globe, MoveRight } from "lucide-react";
 import NFTCard from "../components/NFTCard";
 import { useGetNft } from "@/services/get_nft_service";
 import MoreFromArtistSecition from "./components/MoreFromArtistSection";
-
+import FilledRoundedButton from "../components/FilledRoundedButton";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useSearchParams } from "next/navigation";
 export default function NFTPage() {
-  const { data, isLoading, isError, error } = useGetNft();
+  const searchParamas = useSearchParams();
+  const id = searchParamas.get("id");
+  const { data, isLoading, isError, error } = useGetNft(id!);
 
   if (isLoading) return <p>loading...</p>;
   if (isError) return <p>Error: {error.message}</p>;
@@ -17,22 +22,26 @@ export default function NFTPage() {
         className=" min-h-64 max-h-134 max-w-full w-full bg-primary"
       />
       <div className="flex flex-col p-10 gap-4 md:px-20 lg:px-40 2xl:px-100">
-
         <div className="flex flex-col gap4 md:flex-row">
           <div className="flex flex-col md:w-1/2 gap-4">
             <h1 className="text-white font-bold">{`${data?.name}`}</h1>
-            <p className="text-secondary-text mb-5 md:mb-0">Minted on Sep 30, 2022</p>
+            <p className="text-secondary-text mb-5 md:mb-0">
+              Minted on Sep 30, 2022
+            </p>
 
             <div className="hidden md:flex flex-col gap-4 mt-10 ">
               <p className="text-secondary-text">Created By</p>
-              <div className="flex flex-row gap-4 items-center">
+              <Link
+                href={`/artist/`}
+                className="flex flex-row gap-4 items-center hover:scale-95 transition-all duration-200 cursor-pointer"
+              >
                 <img
-                  src=""
+                  src={`http://localhost:3000/uploads/${data?.artistProfile}`}
                   alt=""
                   className="w-6 h-6 bg-primary rounded-full"
                 />
-                <p>Dish Studio</p>
-              </div>
+                <p>{data?.artistName}</p>
+              </Link>
             </div>
           </div>
           <div className="flex flex-col rounded-2xl w-full md:w-1/2 bg-secondary-background p-6">
@@ -45,22 +54,22 @@ export default function NFTPage() {
               <p>:</p>
               <div className="flex flex-col gap-2 items-center justify-center">
                 <h1>59</h1>
-                <p>Hours</p>
+                <p>Minutes</p>
               </div>
               <p>:</p>
               <div className="flex flex-col gap-2 items-center justify-center">
                 <h1>59</h1>
-                <p>Hours</p>
+                <p>Seconds</p>
               </div>
             </div>
-            <button className="py-2 px-4 bg-primary rounded-2xl">
-              Place Bid
-            </button>
+            <FilledRoundedButton onClick={() => {}}>
+              <p>Place Bid</p>
+            </FilledRoundedButton>
           </div>
         </div>
         <div className="flex flex-col gap-4 md:hidden">
           <p className="text-secondary-text">Created By</p>
-          <div className="flex flex-row gap-4 items-center">
+          <div className="flex flex-row gap-4 items-center hover:scale-110 transition-all duration-200 cursor-pointer">
             <img
               src={`http://localhost:3000/uploads/${data?.artistProfile}`}
               className="w-6 h-6 bg-primary rounded-full"
