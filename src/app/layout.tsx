@@ -18,9 +18,9 @@ export default function RootLayout({
             <Appbar />
             {children}
           </div>
-          <footer className="bg-secondary-background">
+          {/* <footer className="bg-secondary-background">
             <Footer />
-          </footer>
+          </footer> */}
         </Providers>
       </body>
     </html>

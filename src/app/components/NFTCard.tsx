@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-
 export interface NFT {
   id: number;
   name: string;
@@ -18,7 +16,6 @@ export interface NFT {
 }
 
 export default function NFTCard(nft: NFT) {
-  const router = useRouter();
   return (
     <Link href={{ pathname: `/nft`, query: { id: nft.id.toString() } }}>
       <div className="max-w-md w-full rounded-2xl bg-secondary-background flex flex-col hover:scale-95 transition-all duration-200 cursor-pointer">

@@ -30,7 +30,7 @@ export default function ArtistInfoSection(artist: Artist) {
             <Copy />
             <p>{convertToTruncate(artist.walletAddres)}</p>
           </FilledRoundedButton>
-          <OutlinedRoundedButton onClick={() => {}}>
+          <OutlinedRoundedButton onClick={() => {}} className={""}>
             <Plus color="#a259ff" />
             <p>Follow</p>
           </OutlinedRoundedButton>

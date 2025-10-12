@@ -4,9 +4,14 @@ import { Rocket, User } from "lucide-react";
 import HeroStaticsItem, { HeroStaticsItemType } from "./HeroStaticsItem";
 import { it } from "node:test";
 import Link from "next/link";
+import NFTCard, { NFT } from "@/app/components/NFTCard";
 // import { useRouter } from "next/navigation";
 
-export default function HeroSection() {
+export interface HeroSectionData{
+  nft:NFT
+}
+
+export default function HeroSection({nft}:HeroSectionData) {
   // const router = useRouter();
 
   const stats: HeroStaticsItemType[] = [
@@ -44,19 +49,8 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-          <div className="max-w-sm rounded-xl bg-secondary-background overflow-hidden shadow-lg">
-            <img
-              className="w-full h-50 bg-primary "
-              // src="/img/card-top.jpg"
-              alt=""
-            />
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-              <div className="flex flex-row items-center gap-2">
-                <div className="w-10 h-10 bg-primary rounded-full" />
-                <p>Animakid</p>
-              </div>
-            </div>
+          <div className="max-w-sm rounded-xl  overflow-hidden">
+            <NFTCard {...nft  }/>
           </div>
         </div>
 

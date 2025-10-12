@@ -1,3 +1,5 @@
+import { hoverAnimation } from "@/utils";
+import { Search } from "lucide-react";
 import Link from "next/link";
 
 export default function BrowseCategorySection() {
@@ -8,34 +10,24 @@ export default function BrowseCategorySection() {
         <h1 className="text-3xl">Browse Categories</h1>
         <div className="mt-5 grid grid-cols-2 md:grid-cols-4 gap-4">
           {array.map((i) => (
-            <Link key={i} href={"/marketplace"}>
-              <div className="rounded-xl overflow-hidden bg-secondary-background">
-                <div className="relative">
-                  <img
-                    src="art.jpg"
-                    alt="Art"
-                    className="w-full h-28 object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-10 w-10 text-white"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 4h16v16H4z"
-                      />
-                    </svg>
+            <Link key={i} href={"/marketplace"} className={`${hoverAnimation}`}>
+              <div className="flex flex-col rounded-2xl  bg-secondary-background ">
+                <div
+                  className="relative  h-40 rounded-t-2xl overflow-hidden bg-center bg-cover"
+                  style={{
+                    backgroundImage:
+                      "url('https://images.unsplash.com/photo-1606112219348-204d7d8b94ee?auto=format&fit=crop&w=800&q=80')",
+                  }}
+                >
+                  {/* Glass overlay */}
+                  <div className="absolute inset-0 bg-white/20 backdrop-blur-md flex items-center justify-center">
+                    {/* Center Icon */}
+                    <div className="w-12 h-12 rounded-full bg-white/30 flex items-center justify-center backdrop-blur-sm">
+                      <Search className="text-white text-2xl" />
+                    </div>
                   </div>
                 </div>
-                <div className="p-3 text-center text-white text-sm font-medium">
-                  Art
-                </div>
+                <p className="my-4 mx-5">qwe</p>
               </div>
             </Link>
           ))}

@@ -7,12 +7,13 @@ import FilledRoundedButton from "../components/FilledRoundedButton";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSearchParams } from "next/navigation";
+import NFTLoadingSkeleton from "./components/NFTLoadingSkeleton";
 export default function NFTPage() {
   const searchParamas = useSearchParams();
   const id = searchParamas.get("id");
   const { data, isLoading, isError, error } = useGetNft(id!);
 
-  if (isLoading) return <p>loading...</p>;
+  if (isLoading) return <NFTLoadingSkeleton />;
   if (isError) return <p>Error: {error.message}</p>;
   return (
     <div className="flex flex-col">

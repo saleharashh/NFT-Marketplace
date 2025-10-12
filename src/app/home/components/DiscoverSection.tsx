@@ -1,10 +1,16 @@
-import NFTCard from "@/app/components/NFTCard";
+import NFTCard, { NFT } from "@/app/components/NFTCard";
 import { Eye } from "lucide-react";
 import Link from "next/link";
+import { it } from "node:test";
 // import NFTCard from "../utils/NFTCard";
 
-export default function DiscoverSecrtion() {
-  const array: number[] = [1, 2, 3];
+export interface DiscoverSecrtionData {
+  topThreeNft: NFT[];
+}
+
+export default function DiscoverSecrtion({
+  topThreeNft,
+}: DiscoverSecrtionData) {
   return (
     <>
       <div className="mt-10 flex flex-col gap2 ">
@@ -18,12 +24,21 @@ export default function DiscoverSecrtion() {
             <p>See All</p>
           </div>
         </div>
-        <div className="mt-4 flex flex-col md:flex-row gap-2 items-center justify-between">
-          {array.map((i) => (
-            <Link href={"nft"}>
-              {/* <NFTCard key={i} /> */}
-            </Link>
-          ))}
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 items-center justify-between ">
+          <Link href={"nft"} className="">
+            <NFTCard {...topThreeNft[0]} />
+          </Link>
+          <Link href={"nft"} className="hidden md:block">
+            <NFTCard {...topThreeNft[1]} />
+          </Link>
+          <Link href={"nft"} className="hidden lg:block ">
+            <NFTCard {...topThreeNft[2]} />
+          </Link>
+          {/* {topThreeNft.map((item, index) => (
+          
+            <div className="flex flex-row gap-4">
+            </div>
+          ))} */}
         </div>
       </div>
     </>
