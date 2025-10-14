@@ -8,12 +8,16 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSearchParams } from "next/navigation";
 import NFTLoadingSkeleton from "./components/NFTLoadingSkeleton";
+import ActionBid from "./components/ActionBid";
+import DetailSections from "./components/DetailsSection";
+import TagsSection from "./components/TagsSection";
 export default function NFTPage() {
   const searchParamas = useSearchParams();
   const id = searchParamas.get("id");
-  const { data, isLoading, isError, error } = useGetNft(id!);
+  console.log(id);
+  const { data, isLoading, isFetching, isError, error } = useGetNft(id!);
 
-  if (isLoading) return <NFTLoadingSkeleton />;
+  if (isLoading || isFetching) return <NFTLoadingSkeleton />;
   if (isError) return <p>Error: {error.message}</p>;
   return (
     <div className="flex flex-col">
@@ -33,7 +37,10 @@ export default function NFTPage() {
             <div className="hidden md:flex flex-col gap-4 mt-10 ">
               <p className="text-secondary-text">Created By</p>
               <Link
-                href={`/artist/`}
+                href={{
+                  pathname: "/artist",
+                  query: { id: data!.creatorId.toString() },
+                }}
                 className="flex flex-row gap-4 items-center hover:scale-95 transition-all duration-200 cursor-pointer"
               >
                 <img
@@ -45,34 +52,13 @@ export default function NFTPage() {
               </Link>
             </div>
           </div>
-          <div className="flex flex-col rounded-2xl w-full md:w-1/2 bg-secondary-background p-6">
-            <h1>Action ends in:</h1>
-            <div className="flex flex-row gap-2  p-4 w-full justify-between">
-              <div className="flex flex-col gap-2 items-center justify-center">
-                <h1>59</h1>
-                <p>Hours</p>
-              </div>
-              <p>:</p>
-              <div className="flex flex-col gap-2 items-center justify-center">
-                <h1>59</h1>
-                <p>Minutes</p>
-              </div>
-              <p>:</p>
-              <div className="flex flex-col gap-2 items-center justify-center">
-                <h1>59</h1>
-                <p>Seconds</p>
-              </div>
-            </div>
-            <FilledRoundedButton onClick={() => {}}>
-              <p>Place Bid</p>
-            </FilledRoundedButton>
-          </div>
+          <ActionBid />
         </div>
         <div className="flex flex-col gap-4 md:hidden">
           <p className="text-secondary-text">Created By</p>
           <div className="flex flex-row gap-4 items-center hover:scale-110 transition-all duration-200 cursor-pointer">
             <img
-              src={`http://localhost:3000/uploads/${data?.artistProfile}`}
+              src={`${process.env.NEXT_PUBLIC_BASE_IMAGES_URL}/uploads/${data?.artistProfile}`}
               className="w-6 h-6 bg-primary rounded-full"
             />
             <p>{data?.artistName}</p>
@@ -80,28 +66,10 @@ export default function NFTPage() {
         </div>
         <p className=" text-secondary-text">Description</p>
         <p>{data?.description}</p>
-        <p className="text-secondary-text">Details</p>
-        <div className="flex flex-row gap-3">
-          <Globe />
-          <p>View on Etherscan</p>
-        </div>
-        <div className="flex flex-row gap-3">
-          <Globe />
-          <p>View Orginal</p>
-        </div>
-        <p className="text-secondary-text">Tags</p>
-        <div className="flex flex-col lg:flex-row gap-4">
-          <p className="bg-secondary-background w-fit px-5 py-2 rounded-full">
-            Animation
-          </p>
-          <p className="bg-secondary-background w-fit px-5 py-2 rounded-full">
-            Illustration
-          </p>
-          <p className="bg-secondary-background w-fit px-5 py-2 rounded-full">
-            Moon
-          </p>
-        </div>
-        <MoreFromArtistSecition />
+
+        <DetailSections />
+        <TagsSection />
+        <MoreFromArtistSecition id={data!.creatorId} />
       </div>
     </div>
   );

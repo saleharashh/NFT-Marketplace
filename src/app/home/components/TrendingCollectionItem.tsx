@@ -12,7 +12,12 @@ export default function TrendingCollectionItem({
 }: TrendingCollectionItemData) {
   return (
     <div className="min-w-smx 2xl:min-w-sm rounded-2xl  overflow-hidden bg-gray-900 flex flex-col gap-4 ">
-      <Link href={"/nft"}>
+      <Link
+        href={{
+          pathname: `/nft`,
+          query: { id: collection.nftIds[0] },
+        }}
+      >
         <img
           src={`http://localhost:3000/uploads/${collection.imageIds[0]}`}
           alt="Big"
@@ -21,12 +26,12 @@ export default function TrendingCollectionItem({
       </Link>
       <div className="grid grid-cols-3 gap-2 ">
         <img
-          src={`http://localhost:3000/uploads/${collection.imageIds[0]}`}
+          src={`http://localhost:3000/uploads/${collection.imageIds[1]}`}
           className={`aspect-square object-cover rounded-lg bg-primary hover:scale-95 ${hoverAnimation}`}
         />
 
         <img
-          src={`http://localhost:3000/uploads/${collection.imageIds[0]}`}
+          src={`http://localhost:3000/uploads/${collection.imageIds[2]}`}
           className={`aspect-square object-cover rounded-lg bg-primary ${hoverAnimation}`}
         />
 

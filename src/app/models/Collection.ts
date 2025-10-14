@@ -1,8 +1,9 @@
-export interface Collection {
+export type Collection = {
   collectionId: number;
   imageIds: string[];
   collectionName: string;
   artistId: number;
   artistName: string;
   artistProfilePicture: string;
-}
+  nftIds: string[];
+};

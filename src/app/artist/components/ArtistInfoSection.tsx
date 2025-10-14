@@ -15,7 +15,6 @@ import OutlinedRoundedButton from "@/app/components/OutlinedRoundedButton";
 import FilledRoundedButton from "@/app/components/FilledRoundedButton";
 
 export default function ArtistInfoSection(artist: Artist) {
-  console.log(artist);
   const artistStats: ArtistStatItemType[] = [
     { title: "Volume", value: artist.volume + "K +" },
     { title: "NFTs Sold", value: artist.nftSolds + "K +" },

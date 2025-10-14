@@ -4,6 +4,7 @@ import "./globals.css";
 import Appbar from "./components/Appbar";
 import Footer from "./components/Footer";
 import Providers from "@/providers";
+import { NavigationProvider } from "./hooks/NavigationContext";
 
 export default function RootLayout({
   children,
@@ -12,16 +13,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-background">
-        <Providers>
-          <div>
+      <body className="bg-background ">
+        <div>
+          <Providers>
             <Appbar />
-            {children}
-          </div>
-          {/* <footer className="bg-secondary-background">
+            <div className="min-h-screen">
+              <NavigationProvider>{children}</NavigationProvider>
+            </div>
+          </Providers>
+
+          <footer className="bg-secondary-background">
             <Footer />
-          </footer> */}
-        </Providers>
+          </footer>
+        </div>
       </body>
     </html>
   );

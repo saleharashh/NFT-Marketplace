@@ -13,10 +13,10 @@ export default function Providers({ children }: { children: ReactNode }) {
   );
 }
 
-declare global {
-  interface Window {
-    __TANSTACK_QUERY_CLIENT__: import("@tanstack/query-core").QueryClient;
-  }
-}
+// declare global {
+//   interface Window {
+//     __TANSTACK_QUERY_CLIENT__: import("@tanstack/query-core").QueryClient;
+//   }
+// }
 
-window.__TANSTACK_QUERY_CLIENT__ = queryClient;
+// window.__TANSTACK_QUERY_CLIENT__ = queryClient;

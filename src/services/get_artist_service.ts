@@ -3,40 +3,23 @@ import axiosClient from "@/lib/axiosClient";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-export async function getArtist() {
+export async function getArtist(id: string) {
   try {
-    const res = await axiosClient.get(
-      "http://localhost:3000/artists/getArtist",
-      {
-        params: { id: 1 },
-      }
-    );
+    const res = await axiosClient.get("/artists/getArtist", {
+      params: { id: id },
+    });
     return res.data.data!;
   } catch (error) {
     throw new Error("Network response was not Ok");
   }
 }
-
-async function fetchArtists(): Promise<Artist> {
-  try {
-    const res = await axiosClient.get(
-      "http://localhost:3000/artists/getArtist",
-      {
-        params: { id: 1 },
-      }
-    );
-    return res.data.data!;
-  } catch (error) {
-    throw new Error("Network response was not Ok");
-  }
-  //   const res = await fetch("http://localhost:3000/artists/getArtist?id=2");
-  //   if (!res.ok) throw new Error("Network response was not ok");
-  //   return res.json();
-}
-
-export function useArtists() {
+export function useArtists(id: string) {
   return useQuery<Artist, Error>({
-    queryKey: ["artists"],
-    queryFn: fetchArtists,
+    queryKey: ["getArtist"],
+    queryFn: () => getArtist(id),
+    staleTime: 0,
+    gcTime: 0,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
 }

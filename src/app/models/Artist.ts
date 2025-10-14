@@ -1,4 +1,4 @@
-export interface Artist {
+export type Artist = {
   id: number;
   name: string;
   volume: string;
@@ -8,4 +8,4 @@ export interface Artist {
   bio: string;
   profileImage: string;
   backgroundImage: string;
-}
+};

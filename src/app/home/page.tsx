@@ -1,4 +1,3 @@
-import { getHomeData, useHomeStart } from "@/services/start_home_service";
 
 import {
   dehydrate,
@@ -8,12 +7,7 @@ import {
 import HomeClient from "./HomeClient";
 
 export default async function Home() {
-  const queryClient = new QueryClient();  
-
-  await queryClient.prefetchQuery({
-    queryKey: ["homestart"],
-    queryFn: getHomeData,
-  });
+  const queryClient = new QueryClient();
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

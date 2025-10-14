@@ -15,10 +15,11 @@ export default function Appbar() {
     { name: "Connect a Wallet", route: "marketplace" },
   ];
   return (
-    <div className="flex flex-row justify-between items-center py-4 px-6 lg:px-16 xl:px-32 ">
+    <nav className="flex flex-row justify-between items-center py-4 px-6 lg:px-16 xl:px-32 ">
       <Link
         className="flex flex-row gap-4 items-center hover:scale-95 transition-all duration-200 cursor-pointer"
         href={"/"}
+        prefetch={true}
       >
         <Store color="#a259ff" />
         <h6 className="text-sm font-bold">NFT Marketplace</h6>
@@ -34,13 +35,13 @@ export default function Appbar() {
             {item.name}
           </Link>
         ))}
-        <FilledRoundedButton onClick={() => {}}>
+        <FilledRoundedButton>
           <div className="flex flex-row gap-4">
             <User />
             <p>Sign Up</p>
           </div>
         </FilledRoundedButton>
       </div>
-    </div>
+    </nav>
   );
 }

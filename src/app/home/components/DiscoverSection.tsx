@@ -1,7 +1,7 @@
-import NFTCard, { NFT } from "@/app/components/NFTCard";
+import NFTCard from "@/app/components/NFTCard";
+import { NFT } from "@/app/models/NFT";
 import { Eye } from "lucide-react";
 import Link from "next/link";
-import { it } from "node:test";
 // import NFTCard from "../utils/NFTCard";
 
 export interface DiscoverSecrtionData {
@@ -11,6 +11,7 @@ export interface DiscoverSecrtionData {
 export default function DiscoverSecrtion({
   topThreeNft,
 }: DiscoverSecrtionData) {
+  console.log(topThreeNft);
   return (
     <>
       <div className="mt-10 flex flex-col gap2 ">

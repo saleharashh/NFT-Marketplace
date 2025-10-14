@@ -6,17 +6,21 @@ import ArtistLoadingSkeleton from "./components/ArtistLoadingSkeleton";
 import ArtistHeroSection from "./components/HeroSection";
 import OwnedNFTs from "./components/ArtistNFTs";
 import Artist from "./page";
+import { useQueryClient } from "@tanstack/react-query";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useRef } from "react";
+import { useNavigation } from "../hooks/NavigationContext";
+import { ARtistNFTType } from "@/lib/ArtistNFTType";
 
 const ArtistClient = () => {
-  const { data, isLoading, isError, error } = useArtists();
-
+  const id = useSearchParams().get("id");
+  const { data, isLoading, isFetching, isError, error } = useArtists(id!);
   const tabs = ["Created", "Owned", "Collection"];
-
-  if (isLoading) return <ArtistLoadingSkeleton />;
+  if (isLoading || isFetching) return <ArtistLoadingSkeleton />;
   if (isError) return <p>Error: {error.message}</p>;
-  console.log(data);
+
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col">
       <ArtistHeroSection
         profileImage={data?.profileImage!}
         backgroundImage={data?.backgroundImage!}
@@ -25,7 +29,10 @@ const ArtistClient = () => {
         <div className="px-10 ">
           <ArtistInfoSection {...data!} />
         </div>
-        <TabLayout tabs={tabs} content={<OwnedNFTs />} />
+        <TabLayout
+          tabs={tabs}
+          content={<OwnedNFTs id={id!} type={ARtistNFTType.Created} />}
+        />
       </div>
     </div>
   );

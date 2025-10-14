@@ -13,10 +13,6 @@ import ArtistClient from "./ArtistClient";
 export default async function Artist() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery({
-    queryKey: ["getArtist"],
-    queryFn: getArtist,
-  });
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>

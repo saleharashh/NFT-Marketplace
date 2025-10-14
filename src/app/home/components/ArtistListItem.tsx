@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function ArtistListItem(artist: Artist) {
   return (
     <Link
-      href={"/artist"}
+      href={{ pathname: "/artist", query: { id: artist.id.toString() } }}
       className={`flex lg:flex-col  lg:items-center lg:justify-center w-full items-center gap-3 bg-gray-800 rounded-lg px-4 py-2 bg-secondary-background ${hoverAnimation}`}
     >
       <img

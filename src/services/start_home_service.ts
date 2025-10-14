@@ -1,23 +1,12 @@
+import { HomeStart } from "@/app/models/HomeStart";
+import axiosClient from "@/lib/axiosClient";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-
-export async function getHomeData() {
+async function fetchDataHomeStart(screenSize: number): Promise<HomeStart> {
   try {
-    const res = await axios.get("http://localhost:3000/home/start", {
-      params: { screenSize: 1 },
-    });
-    return res.data;
-  } catch (e) {
-    throw new Error("Network response was not Ok");
-  }
-}
-
-async function fetchDataHomeStart(screenSize: number) {
-  try {
-    const res = await axios.get("http://localhost:3000/home/start", {
+    const res = await axiosClient.get("/home/start", {
       params: { screenSize: screenSize },
     });
-    return res.data;
+    return res.data.data;
   } catch (e) {
     throw new Error("Network response was not Ok");
   }

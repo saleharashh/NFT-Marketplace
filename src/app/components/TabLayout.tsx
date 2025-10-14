@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import NFTCard from "./utils/NFTCard";
+
 import TabItem from "./TabItem";
 import { it } from "node:test";
 
@@ -21,7 +21,7 @@ export default function TabLayout({ tabs, content }: TabLayoutType) {
   return (
     <div className="flex flex-col">
       {/* tabs section */}
-      <ol className="flex flex-row gap-2 md:gap-4 items-center justify-center mx-10 mt-2">
+      <ol className="flex flex-row gap-2 md:gap-4 items-center justify-center mx-10 mt-2 " >
         {tabs.map((item, index) => (
           <TabItem
             index={index}

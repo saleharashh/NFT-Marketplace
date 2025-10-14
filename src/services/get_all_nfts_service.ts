@@ -1,10 +1,11 @@
 import { NFT } from "@/app/components/NFTCard";
+import axiosClient from "@/lib/axiosClient";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 async function fetchAllNftsService(): Promise<NFT[]> {
   try {
-    const res = await axios.get("http://localhost:3000/nft/getAllNfts");
+    const res = await axiosClient.get("/nft/getAllNfts");
 
     return res.data.data!;
   } catch (error) {
@@ -12,9 +13,12 @@ async function fetchAllNftsService(): Promise<NFT[]> {
   }
 }
 
-export  function useGetAllNFTs() {
+export function useGetAllNFTs() {
   return useQuery<NFT[], Error>({
     queryKey: ["getAllNFTs"],
     queryFn: fetchAllNftsService,
+    gcTime: 0,
+    staleTime: 0,
+    refetchOnMount: true,
   });
 }

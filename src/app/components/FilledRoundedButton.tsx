@@ -3,11 +3,11 @@ import { ReactNode } from "react";
 
 interface FilledRoundedButton {
   children: ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
 }
 export default function FilledRoundedButton({
   children,
-  onClick,
+  onClick = () => {},
 }: FilledRoundedButton) {
   return (
     <div

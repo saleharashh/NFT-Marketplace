@@ -1,12 +1,13 @@
 import { NFT } from "@/app/components/NFTCard";
 import { Artist } from "@/app/models/Artist";
+import axiosClient from "@/lib/axiosClient";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-async function fetchArtistNFTs(): Promise<NFT[]> {
+async function fetchArtistNFTs(id: string): Promise<NFT[]> {
   try {
-    const res = await axios.get("http://localhost:3000/nft/getByCreatorId", {
-      params: { creatorId : "1" },
+    const res = await axiosClient.get("/nft/getByOwnerId", {
+      params: { ownerId: id },
     });
     return res.data.data;
   } catch (error) {
@@ -14,9 +15,9 @@ async function fetchArtistNFTs(): Promise<NFT[]> {
   }
 }
 
-export function useGetArtistOwnedNFTs() {
+export function useGetArtistOwnedNFTs(id: string) {
   return useQuery<NFT[], Error>({
     queryKey: ["artistOwnedNFTs"],
-    queryFn: fetchArtistNFTs,
+    queryFn: () => fetchArtistNFTs(id),
   });
 }

@@ -1,19 +1,5 @@
 import Link from "next/link";
-export interface NFT {
-  id: number;
-  name: string;
-  creatorId: string;
-  ownerId: string;
-  description: string;
-  etherScanLink: string;
-  orginalLink: string;
-  image: string;
-  price: string;
-  highestBid: string;
-  tagIds: string[];
-  artistName: string;
-  artistProfile: string;
-}
+import { NFT } from "../models/NFT";
 
 export default function NFTCard(nft: NFT) {
   return (
