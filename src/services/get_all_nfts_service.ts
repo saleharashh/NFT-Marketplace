@@ -1,12 +1,10 @@
-import { NFT } from "@/app/components/NFTCard";
+import { NFT } from "@/app/models/NFT";
 import axiosClient from "@/lib/axiosClient";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 
 async function fetchAllNftsService(): Promise<NFT[]> {
   try {
-    const res = await axiosClient.get("/nft/getAllNfts");
-
+    const res = await axiosClient.get("/nft/getAllNfts?search=");
     return res.data.data!;
   } catch (error) {
     throw new Error("Network Error was Not Ok!");

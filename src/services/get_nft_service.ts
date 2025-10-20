@@ -1,4 +1,5 @@
-import { NFT } from "@/app/components/NFTCard";
+
+import { NFT } from "@/app/models/NFT";
 import axiosClient from "@/lib/axiosClient";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";

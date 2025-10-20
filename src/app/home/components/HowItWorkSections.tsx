@@ -9,7 +9,7 @@ export default function HowItWorkSections() {
        mt-8"
       >
         {array.map((i) => (
-          <div className="rounded-2xl bg-secondary-background max-w-md w-full">
+          <div key={i} className="rounded-2xl bg-secondary-background max-w-md w-full">
             <div className="flex flex-row md:flex-col p-4 items-center gap-4" >
               <img
                 src=""

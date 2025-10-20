@@ -11,10 +11,7 @@ export default function ArtistNFTs({
   id: string;
   type: ARtistNFTType;
 }) {
-  const { data, isLoading, isError, error } =
-    type == ARtistNFTType.Created
-      ? useGetArtistCreatedNFTs(id)
-      : useGetArtistOwnedNFTs(id);
+  const { data, isLoading, isError, error } = useGetArtistCreatedNFTs(id,type)
   if (isLoading) return <p>Is Loading...</p>;
   if (isError) return <p>{error.message}</p>;
   return (
@@ -23,7 +20,7 @@ export default function ArtistNFTs({
         data?.length! > 3 ? "grid-cols-3" : "grid-cols-2"
       } gap-2`}
     >
-      {data?.map((item, index) => (
+      {data!.map((item, index) => (
         <NFTCard key={index} {...item} />
       ))}
     </div>

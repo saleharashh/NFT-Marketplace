@@ -22,8 +22,8 @@ const ArtistClient = () => {
   return (
     <div className="flex flex-col">
       <ArtistHeroSection
-        profileImage={data?.profileImage!}
-        backgroundImage={data?.backgroundImage!}
+        profileImage={data!.profileImage!}
+        backgroundImage={data!.backgroundImage!}
       />
       <div className="lg:px-50">
         <div className="px-10 ">

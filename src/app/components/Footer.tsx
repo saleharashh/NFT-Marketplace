@@ -41,7 +41,7 @@ export default function Footer() {
       <div className="flex flex-col gap-5">
         <h1 className="font-bold text-2xl">Explore</h1>
         <Link className={`text-secondary-text ${hoverAnimation}`} href={"/marketplace"}>Marketplace</Link>
-        <Link className={`text-secondary-text ${hoverAnimation}`} href={"/ranking"}>Rankings</Link>
+        <Link className={`text-secondary-text ${hoverAnimation}`} href={"/rankings"}>Rankings</Link>
         <Link className={`text-secondary-text ${hoverAnimation}`} href={"/connect_wallet"}>Connect a Wallet</Link>
       </div>
 
