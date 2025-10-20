@@ -23,7 +23,7 @@ const ConnectWallet = () => {
             There are several wallet providers.
           </p>
           {items.map((item, index) => (
-            <div className="flex flex-row  gap-6 border border-primary py-4 px-8 items-center rounded-2xl bg-secondary-background">
+            <div key={index} className="flex flex-row  gap-6 border border-primary py-4 px-8 items-center rounded-2xl bg-secondary-background">
               <img src={item.imageAddress} className="w-10 h-10" alt="" />
               <p>{item.name}</p>
             </div>

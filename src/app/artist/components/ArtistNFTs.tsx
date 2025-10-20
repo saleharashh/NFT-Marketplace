@@ -11,7 +11,7 @@ export default function ArtistNFTs({
   id: string;
   type: ARtistNFTType;
 }) {
-  const { data, isLoading, isError, error } = useGetArtistCreatedNFTs(id,type)
+  const { data, isLoading, isError, error } = useGetArtistCreatedNFTs(id,type!)
   if (isLoading) return <p>Is Loading...</p>;
   if (isError) return <p>{error.message}</p>;
   return (

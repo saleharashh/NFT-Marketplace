@@ -4,7 +4,8 @@ import { Rocket, User } from "lucide-react";
 import HeroStaticsItem, { HeroStaticsItemType } from "./HeroStaticsItem";
 import { it } from "node:test";
 import Link from "next/link";
-import NFTCard, { NFT } from "@/app/components/NFTCard";
+import NFTCard from "@/app/components/NFTCard";
+import { NFT } from "@/app/models/NFT";
 // import { useRouter } from "next/navigation";
 
 export interface HeroSectionData{
