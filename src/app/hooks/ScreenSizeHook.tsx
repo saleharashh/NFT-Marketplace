@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 function useScreenSizeItemsForArtists() {
-  const [screenSize, setScreenSize] = useState(getItems(window.innerWidth));
+  const [screenSize, setScreenSize] = useState(1000);
 
   function getItems(width: number) {
     if (width < 768) return 1; // sm
@@ -11,7 +11,7 @@ function useScreenSizeItemsForArtists() {
 
   useEffect(() => {
     function handleResize() {
-      setScreenSize(getItems(window.innerWidth));
+      setScreenSize(getItems(1000));
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

@@ -9,6 +9,7 @@ import { getArtist, useArtists } from "@/services/get_artist_service";
 import OwnedNFTs from "./components/ArtistNFTs";
 import ArtistLoadingSkeleton from "./components/ArtistLoadingSkeleton";
 import ArtistClient from "./ArtistClient";
+import { Suspense } from "react";
 
 export default async function Artist() {
   const queryClient = new QueryClient();
@@ -16,7 +17,9 @@ export default async function Artist() {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <ArtistClient />
+      <Suspense>
+        <ArtistClient />
+      </Suspense>
     </HydrationBoundary>
   );
 }

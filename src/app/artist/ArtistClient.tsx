@@ -5,16 +5,13 @@ import ArtistInfoSection from "./components/ArtistInfoSection";
 import ArtistLoadingSkeleton from "./components/ArtistLoadingSkeleton";
 import ArtistHeroSection from "./components/HeroSection";
 import OwnedNFTs from "./components/ArtistNFTs";
-import Artist from "./page";
-import { useQueryClient } from "@tanstack/react-query";
-import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, useRef } from "react";
-import { useNavigation } from "../hooks/NavigationContext";
+import { useSearchParams } from "next/navigation";
 import { ARtistNFTType } from "@/lib/ArtistNFTType";
 
 const ArtistClient = () => {
-  const id = useSearchParams().get("id");
-  const { data, isLoading, isFetching, isError, error } = useArtists(id!);
+  const searchParamas=useSearchParams();
+  const id = searchParamas.get("id")??"";
+  const { data, isLoading, isFetching, isError, error } = useArtists(id);
   const tabs = ["Created", "Owned", "Collection"];
   if (isLoading || isFetching) return <ArtistLoadingSkeleton />;
   if (isError) return <p>Error: {error.message}</p>;
