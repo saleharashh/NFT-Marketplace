@@ -1,7 +1,6 @@
 import { Artist } from "@/app/models/Artist";
 import axiosClient from "@/lib/axiosClient";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 
 export async function getArtist(id: string) {
   try {

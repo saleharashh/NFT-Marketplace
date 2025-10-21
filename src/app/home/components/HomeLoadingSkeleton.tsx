@@ -1,5 +1,3 @@
-import NFTCard from "@/app/components/NFTCard";
-import HeroStaticsItem from "./HeroStaticsItem";
 import NFTCardLoadingSkeleton from "@/app/components/NFTCardLoadingSkeleton";
 
 const HomeLoadingStatItemSkeleton = () => {

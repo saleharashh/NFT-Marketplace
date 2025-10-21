@@ -1,8 +1,7 @@
 // "use client"; // needed if this is inside app/ in Next 13+
 
-import { Rocket, User } from "lucide-react";
+import { Rocket } from "lucide-react";
 import HeroStaticsItem, { HeroStaticsItemType } from "./HeroStaticsItem";
-import { it } from "node:test";
 import Link from "next/link";
 import NFTCard from "@/app/components/NFTCard";
 import { NFT } from "@/app/models/NFT";

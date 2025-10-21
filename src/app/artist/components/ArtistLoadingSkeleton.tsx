@@ -1,7 +1,3 @@
-import { Copy, Globe, Plus, TwitchIcon, Twitter, Youtube } from "lucide-react";
-import ArtistStatItem, { ArtistStatItemType } from "./ArtistStatItem";
-import OutlinedRoundedButton from "@/app/components/OutlinedRoundedButton";
-import FilledRoundedButton from "@/app/components/FilledRoundedButton";
 import ArtsitStatItemSkeleton from "./ArtistStatItemSkeleton";
 import FilledRoundedButtonSkeleton from "@/app/components/FilledRoundedButtonSkeleton";
 import OutlinedRoundedButtonSkeleton from "@/app/components/OutlinedRoundedButtonSkeleton";

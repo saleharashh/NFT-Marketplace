@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type WalletList = {
   name: string;
   imageAddress: string;
@@ -24,7 +26,7 @@ const ConnectWallet = () => {
           </p>
           {items.map((item, index) => (
             <div key={index} className="flex flex-row  gap-6 border border-primary py-4 px-8 items-center rounded-2xl bg-secondary-background">
-              <img src={item.imageAddress} className="w-10 h-10" alt="" />
+              <Image  src={item.imageAddress} className="w-10 h-10" alt="" />
               <p>{item.name}</p>
             </div>
           ))}

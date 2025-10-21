@@ -1,4 +1,3 @@
-import FilledRoundedButton from "@/app/components/FilledRoundedButton";
 import Link from "next/link";
 
 const NFTLoadingSkeleton = () => {

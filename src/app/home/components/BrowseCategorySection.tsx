@@ -6,7 +6,7 @@ import {
   Earth,
   LibraryBigIcon,
   Music,
-  Search,
+
   Video,
   Volleyball,
   Wand2,

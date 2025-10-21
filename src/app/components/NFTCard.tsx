@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { NFT } from "../models/NFT";
+import Image from "next/image";
 
 export default function NFTCard(nft: NFT) {
   return (
     <Link href={{ pathname: `/nft`, query: { id: nft.id.toString() } }}>
       <div className="max-w-md w-full rounded-2xl bg-secondary-background flex flex-col hover:scale-95 transition-all duration-200 cursor-pointer">
-        <img
+        <Image
           src={`http://localhost:3000/uploads/${nft.image}`}
           alt="qwe"
           className="bg-primary hover:bg-white h-64 object-cover rounded-t-2xl"
@@ -13,10 +14,9 @@ export default function NFTCard(nft: NFT) {
         <div className="p-6">
           <h1 className="text-xl font-bold text-white">{nft.name}</h1>
           <div className="flex flex-row items-center gap-2">
-            <img
+            <Image
               src={`http://localhost:3000/uploads/${nft.artistProfile}`}
-              className="w-8 h-8  rounded-full"
-            />
+              className="w-8 h-8  rounded-full" alt={""}            />
             {/* <div className="w-8 h-8 bg-primary rounded-full"> </div> */}
             <p className="text-sm">{nft.artistName}</p>
           </div>

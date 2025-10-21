@@ -1,18 +1,16 @@
+import FilledRoundedButton from "@/app/components/FilledRoundedButton";
+import OutlinedRoundedButton from "@/app/components/OutlinedRoundedButton";
+import { Artist } from "@/app/models/Artist";
+import { convertToTruncate } from "@/utils";
 import {
   Copy,
   Globe,
-  Network,
   Plus,
-  Twitch,
   TwitchIcon,
   Twitter,
   Youtube,
 } from "lucide-react";
 import ArtistStatItem, { ArtistStatItemType } from "./ArtistStatItem";
-import { Artist } from "@/app/models/Artist";
-import { convertToTruncate } from "@/utils";
-import OutlinedRoundedButton from "@/app/components/OutlinedRoundedButton";
-import FilledRoundedButton from "@/app/components/FilledRoundedButton";
 
 export default function ArtistInfoSection(artist: Artist) {
   const artistStats: ArtistStatItemType[] = [

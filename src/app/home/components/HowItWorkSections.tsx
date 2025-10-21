@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function HowItWorkSections() {
   const array: number[] = [1, 2, 3];
   return (
@@ -11,7 +13,7 @@ export default function HowItWorkSections() {
         {array.map((i) => (
           <div key={i} className="rounded-2xl bg-secondary-background max-w-md w-full">
             <div className="flex flex-row md:flex-col p-4 items-center gap-4" >
-              <img
+              <Image
                 src=""
                 alt=""
                 className=" w-36 h-36  rounded-full  bg-primary"

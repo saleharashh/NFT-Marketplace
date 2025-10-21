@@ -1,4 +1,5 @@
 import { Artist } from "@/app/models/Artist";
+import Image from "next/image";
 import Link from "next/link";
 
 export interface ArtistListItemData {
@@ -13,7 +14,7 @@ export default function ArtistListItem({ artist, index }: ArtistListItemData) {
         <td className="text-secondary-text w-1/12">{index + 1}</td>
         <td className="text-secondary-text w-9/12 md:w-7/12 lg:w-5/12">
           <div className="flex flex-row items-center gap-4">
-            <img
+            <Image
               src={`http://localhost:3000/uploads/${artist.profileImage}`}
               alt=""
               className="w-8 h-8 bg-primary rounded-full"

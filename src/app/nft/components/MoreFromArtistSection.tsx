@@ -1,9 +1,7 @@
 import NFTCard from "@/app/components/NFTCard";
 import OutlinedRoundedButton from "@/app/components/OutlinedRoundedButton";
-import { useGetArtistOwnedNFTs } from "@/services/get_artist_owned_nft_service";
 import { useGetNft } from "@/services/get_nft_by_creator_id_service";
 import { MoveRight } from "lucide-react";
-import { it } from "node:test";
 
 export default function MoreFromArtistSecition({ id }: { id: string }) {
   const { data, isLoading, isError, error } = useGetNft(id);

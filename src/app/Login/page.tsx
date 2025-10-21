@@ -1,5 +1,6 @@
 import { Lock, Mail, User2 } from "lucide-react";
 import LoginInput, { LoginInputType } from "../components/Input";
+import Image from "next/image";
 
 export default function LoginPage() {
   const fields: LoginInputType[] = [
@@ -12,10 +13,9 @@ export default function LoginPage() {
     <>
       <div className="flex flex-col md:flex-row md:w-screen gap-4 items-stretch ">
         <div className="w-full md:w-1/2 ">
-          <img
+          <Image
             src="your-image.jpg"
-            className="h-full min-h-60 w-full object-cover bg-primary"
-          />
+            className="h-full min-h-60 w-full object-cover bg-primary" alt={""}          />
         </div>
         <div className="flex flex-col gap-3 p-10 md:w-1/2 md:p-10 ">
           <h1 className="text-3xl font-bold ">Create Account</h1>

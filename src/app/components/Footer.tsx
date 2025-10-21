@@ -1,9 +1,7 @@
 "use client";
 import { hoverAnimation } from "@/utils";
 import {
-  Facebook,
   Instagram,
-  InstagramIcon,
   Mail,
   Store,
   TwitchIcon,
@@ -11,13 +9,8 @@ import {
   Youtube,
 } from "lucide-react";
 import Link from "next/link";
-import { ChangeEvent, useState } from "react";
-
 export default function Footer() {
-  const [subscribe_email, setSubscribe_email] = useState<string>("");
-  function handleChange(event: ChangeEvent<HTMLInputElement>): void {
-    setSubscribe_email(event.target.value);
-  }
+  
 
   return (
     <div className="flex flex-col xl:flex-row gap-4 xl:gap-20 p-10 xl:px-90">

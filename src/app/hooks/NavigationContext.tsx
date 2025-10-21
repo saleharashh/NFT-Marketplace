@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import {
   createContext,
   ReactNode,
-  use,
   useContext,
   useEffect,
   useState,
@@ -19,7 +18,7 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
   const [perviousPath, setPerviousPath] = useState<string | null>(null);
 
   useEffect(() => {
-    setPerviousPath((perv) => pathname);
+    setPerviousPath(() => pathname);
   }, [pathname]);
 
   return (

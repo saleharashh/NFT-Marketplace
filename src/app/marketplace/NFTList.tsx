@@ -1,4 +1,3 @@
-import { useSearchNFTs } from "@/services/search_nfts_service";
 import NFTCard from "../components/NFTCard";
 import { NFT } from "../models/NFT";
 

@@ -1,7 +1,5 @@
 import { Artist } from "@/app/models/Artist";
 import { Rocket } from "lucide-react";
-import Link from "next/link";
-import { it } from "node:test";
 import ArtistListItem from "./ArtistListItem";
 
 export interface TopCreatorsSectionsData {

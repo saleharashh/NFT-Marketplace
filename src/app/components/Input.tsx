@@ -1,4 +1,3 @@
-import { User, User2 } from "lucide-react";
 import React from "react";
 
 export interface LoginInputType {

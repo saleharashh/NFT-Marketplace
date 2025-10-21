@@ -1,5 +1,4 @@
 import { Artist } from "@/app/models/Artist";
-import Link from "next/link";
 import ArtistListItem from "./ArtistListItem";
 
 export interface ArtistListData {

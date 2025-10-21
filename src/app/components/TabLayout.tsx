@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 
 import TabItem from "./TabItem";
-import { it } from "node:test";
 
 export interface TabLayoutType {
   tabs: string[];

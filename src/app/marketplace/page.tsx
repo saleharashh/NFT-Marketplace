@@ -1,7 +1,6 @@
 "use client";
 import { Search } from "lucide-react";
 import TabLayout from "../components/TabLayout";
-import NFTCard from "../components/NFTCard";
 import { useGetAllNFTs } from "@/services/get_all_nfts_service";
 import { useSearchNFTs } from "@/services/search_nfts_service";
 import NFTList from "./NFTList";
@@ -10,7 +9,7 @@ import NFTCardLoadingSkeleton from "../components/NFTCardLoadingSkeleton";
 
 export default function Marketplace() {
   const [search, setsearch] = useState("");
-  const { data, isLoading, isError, error } = useGetAllNFTs();
+  const { data } = useGetAllNFTs();
   const [debouncedSearch, setDebouncedSearch] = useState("");
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,7 +23,7 @@ export default function Marketplace() {
     mutate();
   }, [debouncedSearch]);
 
-  const { mutate, nfts, isPending, searchIsError, searchError } =
+  const { mutate, nfts, isPending } =
     useSearchNFTs(search);
 
   const tabs: string[] = ["NFTs", "Collections"];
