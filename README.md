@@ -19,6 +19,14 @@ It was created to practice frontend development and recreate a pixel-perfect ver
 - Matches the Figma design closely  
 - Clean, readable, and maintainable code  
 
+## Screenshots
+<p align="center">
+  <img src="./screenshots/nft.jpg" alt="Desktop preview" width="800">
+</p>
+<p align="center">
+  <img src="./screenshots/nft.jpg" alt="Mobile preview" width="300">
+</p>
+
 ## Features
 - Responsive navigation and footer  
 - Interactive elements (buttons, hover effects)  
