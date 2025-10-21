@@ -63,7 +63,7 @@ export default function HeroSection({nft}:HeroSectionData) {
               </div>
             </button>
           </Link>
-          <div className="flex flex-row gap-10">
+          <div className="flex flex-row mt-5 gap-10">
             {stats.map((item, index) => (
               <HeroStaticsItem key={index} {...item} />
             ))}

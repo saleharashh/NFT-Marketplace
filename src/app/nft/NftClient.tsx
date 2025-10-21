@@ -19,7 +19,7 @@ const NftClient = () => {
 
   return (
     <div className="flex flex-col">
-      <Image
+      <img
         src={`http://localhost:3000/uploads/${data?.image}`}
         alt=""
         className=" min-h-64 max-h-134 max-w-full w-full bg-primary"
@@ -41,7 +41,7 @@ const NftClient = () => {
                 }}
                 className="flex flex-row gap-4 items-center hover:scale-95 transition-all duration-200 cursor-pointer"
               >
-                <Image
+                <img
                   src={`http://localhost:3000/uploads/${data?.artistProfile}`}
                   alt=""
                   className="w-6 h-6 bg-primary rounded-full"
@@ -55,9 +55,11 @@ const NftClient = () => {
         <div className="flex flex-col gap-4 md:hidden">
           <p className="text-secondary-text">Created By</p>
           <div className="flex flex-row gap-4 items-center hover:scale-110 transition-all duration-200 cursor-pointer">
-            <Image
+            <img
               src={`${process.env.NEXT_PUBLIC_BASE_IMAGES_URL}/uploads/${data?.artistProfile}`}
-              className="w-6 h-6 bg-primary rounded-full" alt={""}            />
+              className="w-6 h-6 bg-primary rounded-full"
+              alt={""}
+            />
             <p>{data?.artistName}</p>
           </div>
         </div>

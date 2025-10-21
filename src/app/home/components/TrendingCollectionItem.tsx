@@ -19,21 +19,23 @@ export default function TrendingCollectionItem({
           query: { id: collection.nftIds[0] },
         }}
       >
-        <Image
-          src={`http://localhost:3000/uploads/${collection.imageIds[0]}`}
+        <img src={`http://localhost:3000/uploads/${collection.imageIds[0]}`}
           alt="Big"
           className={`w-full  aspect-square object-cover bg-primary rounded-2xl ${hoverAnimation}`}
         />
       </Link>
       <div className="grid grid-cols-3 gap-2 ">
-        <Image
-          
+        <img
           src={`http://localhost:3000/uploads/${collection.imageIds[1]}`}
-          className={`aspect-square object-cover rounded-lg bg-primary hover:scale-95 ${hoverAnimation}`} alt={""}        />
+          className={`aspect-square object-cover rounded-lg bg-primary hover:scale-95 ${hoverAnimation}`}
+          alt={""}
+        />
 
-        <Image
+        <img
           src={`http://localhost:3000/uploads/${collection.imageIds[2]}`}
-          className={`aspect-square object-cover rounded-lg bg-primary ${hoverAnimation}`} alt={""}        />
+          className={`aspect-square object-cover rounded-lg bg-primary ${hoverAnimation}`}
+          alt={""}
+        />
 
         <div
           className={`aspect-square rounded-lg bg-purple-500 flex items-center justify-center text-white text-xl font-bold bg-primary ${hoverAnimation}`}
